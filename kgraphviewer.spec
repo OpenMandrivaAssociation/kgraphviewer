@@ -1,12 +1,11 @@
-%define oname 	kgraphviewer
 %define version 2.0
 %define release	1 
 
 Summary:	A GraphViz dot graph viewer for KDE
-Name:		kde4-%{oname}
+Name:		kgraphviewer
 Version: 	%{version}
 Release: 	%mkrel %{release}
-Source0: 	http://download.gna.org/kgraphviewer/%{oname}-%version.tar.bz2
+Source0: 	http://download.gna.org/kgraphviewer/%{name}-%version.tar.bz2
 License: 	GPLv2+
 Group: 		Graphics	 	
 Url: 		https://gna.org/projects/kgraphviewer
@@ -28,7 +27,7 @@ created for processing with GraphViz. Notable features provided include:
 - session management
 
 %prep
-%setup -q -n %oname-%version 
+%setup -q -n %name-%version 
 
 %build
 %cmake_kde4
@@ -48,7 +47,7 @@ desktop-file-install --vendor='' \
 	%buildroot%_kde_datadir/applications/kde4/kgraphviewer.desktop \
 	%buildroot%_kde_datadir/applications/kde4/kgrapheditor.desktop
 
-%find_lang %oname --with-html
+%find_lang %name --with-html
 
 %clean
 rm -rf %{buildroot}
@@ -61,7 +60,7 @@ rm -rf %{buildroot}
 /sbin/ldconfig
 %update_menus
 
-%files -f %oname.lang
+%files -f %name.lang
 %defattr(-,root,root)
 %_kde_bindir/*
 %_kde_libdir/kde4/*.so
