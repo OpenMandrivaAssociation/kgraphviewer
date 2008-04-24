@@ -14,6 +14,8 @@ Requires:	graphviz
 BuildRequires:	boost-devel
 BuildRequires: 	kdepimlibs4-devel
 BuildRequires:	desktop-file-utils
+Obsoletes:      kde4-%name <= 2.0
+Provides:       kde4-%name = %version
 
 %description 
 KGraphViewer is user-friendly KDE application for viewing dot graphs 
@@ -25,6 +27,26 @@ created for processing with GraphViz. Notable features provided include:
 - simple printing
 - context menu and toolbar for selecting layout algorithms
 - session management
+
+%post
+/sbin/ldconfig
+%update_menus
+
+%postun
+/sbin/ldconfig
+%update_menus
+
+%files -f %name.lang
+%defattr(-,root,root)
+%_kde_bindir/*
+%_kde_libdir/kde4/*.so
+%_kde_datadir/applications/kde4/*.desktop
+%_kde_appsdir/*
+%_kde_datadir/config.kcfg/*.kcfg
+%_kde_iconsdir/*/*/*/*.png
+%_kde_datadir/kde4/services/*.desktop
+
+#--------------------------------------------------------------------
 
 %prep
 %setup -q -n %name-%version 
@@ -51,21 +73,3 @@ desktop-file-install --vendor='' \
 
 %clean
 rm -rf %{buildroot}
-
-%post
-/sbin/ldconfig
-%update_menus
-
-%postun
-/sbin/ldconfig
-%update_menus
-
-%files -f %name.lang
-%defattr(-,root,root)
-%_kde_bindir/*
-%_kde_libdir/kde4/*.so
-%_kde_datadir/applications/kde4/*.desktop
-%_kde_appsdir/*
-%_kde_datadir/config.kcfg/*.kcfg
-%_kde_iconsdir/*/*/*/*.png
-%_kde_datadir/kde4/services/*.desktop
