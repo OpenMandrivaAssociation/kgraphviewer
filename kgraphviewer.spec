@@ -1,11 +1,11 @@
-%define version 2.0.1
+%define version 2.0.2
 %define rel	1
 
 Summary:	A GraphViz dot graph viewer for KDE
 Name:		kgraphviewer
 Version: 	%{version}
 Release: 	%mkrel %{rel}
-Source0: 	http://download.gna.org/kgraphviewer/%{name}-%version-kde4.0.4.tar.bz2
+Source0: 	http://download.gna.org/kgraphviewer/%{name}-%version-kde4.0.80.tar.bz2
 License: 	GPLv2+
 Group: 		Graphics	 	
 Url: 		https://gna.org/projects/kgraphviewer
@@ -49,7 +49,7 @@ created for processing with GraphViz. Notable features provided include:
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n %name-%version-kde4.0.4
+%setup -q -n %name-%version-kde4.0.80
 
 %build
 %cmake_kde4
