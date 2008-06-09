@@ -29,11 +29,15 @@ created for processing with GraphViz. Notable features provided include:
 - session management
 
 %post
+%if %mdkversion < 200900
 /sbin/ldconfig
+%endif
 %update_menus
 
 %postun
+%if %mdkversion < 200900
 /sbin/ldconfig
+%endif
 %update_menus
 
 %files -f %name.lang
