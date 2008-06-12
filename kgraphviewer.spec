@@ -32,13 +32,17 @@ created for processing with GraphViz. Notable features provided include:
 %if %mdkversion < 200900
 /sbin/ldconfig
 %endif
+%if %mdkversion < 200900
 %update_menus
+%endif
 
 %postun
 %if %mdkversion < 200900
 /sbin/ldconfig
 %endif
+%if %mdkversion < 200900
 %update_menus
+%endif
 
 %files -f %name.lang
 %defattr(-,root,root)
