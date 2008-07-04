@@ -1,5 +1,5 @@
 %define version 2.0.2
-%define rel	2
+%define rel	3
 
 Summary:	A GraphViz dot graph viewer for KDE
 Name:		kgraphviewer
