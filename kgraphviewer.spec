@@ -1,11 +1,8 @@
-%define version 2.0.2
-%define rel	3
-
-Summary:	A GraphViz dot graph viewer for KDE
 Name:		kgraphviewer
-Version: 	%{version}
-Release: 	%mkrel %{rel}
-Source0: 	http://download.gna.org/kgraphviewer/%{name}-%version-kde4.0.80.tar.bz2
+Version: 	2.0.2
+Release: 	%mkrel 4
+Summary:	A GraphViz dot graph viewer for KDE
+Source0: 	http://download.gna.org/kgraphviewer/%{name}-%version-kde4.2.0.tar.bz2
 License: 	GPLv2+
 Group: 		Graphics	 	
 Url: 		https://gna.org/projects/kgraphviewer
@@ -28,22 +25,6 @@ created for processing with GraphViz. Notable features provided include:
 - context menu and toolbar for selecting layout algorithms
 - session management
 
-%post
-%if %mdkversion < 200900
-/sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%update_menus
-%endif
-
-%postun
-%if %mdkversion < 200900
-/sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%update_menus
-%endif
-
 %files -f %name.lang
 %defattr(-,root,root)
 %_kde_bindir/*
@@ -57,7 +38,7 @@ created for processing with GraphViz. Notable features provided include:
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n %name-%version-kde4.0.80
+%setup -q -n %name-%version-kde4.2.0
 
 %build
 %cmake_kde4
@@ -65,9 +46,7 @@ created for processing with GraphViz. Notable features provided include:
 
 %install
 rm -rf %{buildroot}
-cd build
-%{makeinstall_std}
-cd -
+%{makeinstall_std} -C build
 
 desktop-file-install --vendor='' \
 	--dir %buildroot%_kde_datadir/applications/kde4/ \
