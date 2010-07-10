@@ -1,8 +1,8 @@
 Name:		kgraphviewer
-Version: 	2.0.2
-Release: 	%mkrel 5
+Version: 	2.0.90
+Release: 	%mkrel 1
 Summary:	A GraphViz dot graph viewer for KDE
-Source0: 	http://download.gna.org/kgraphviewer/%{name}-%version-kde4.2.0.tar.bz2
+Source0: 	https://api.opensuse.org/public/source/home:milianw:kdeapps/kgraphviewer/%name-%version.tar.gz
 License: 	GPLv2+
 Group: 		Graphics	 	
 Url: 		https://gna.org/projects/kgraphviewer
@@ -11,11 +11,12 @@ Requires:	graphviz
 BuildRequires:	boost-devel
 BuildRequires: 	kdepimlibs4-devel
 BuildRequires:	desktop-file-utils
+BuildRequires:	graphviz-devel
 Obsoletes:      kde4-%name <= 2.0
 Provides:       kde4-%name = %version
 
-%description 
-KGraphViewer is user-friendly KDE application for viewing dot graphs 
+%description
+KGraphViewer is user-friendly KDE application for viewing dot graphs
 created for processing with GraphViz. Notable features provided include:
 
 - loading of several graphs in tabs
@@ -37,8 +38,38 @@ created for processing with GraphViz. Notable features provided include:
 
 #--------------------------------------------------------------------
 
+%define libkgraphviewer %mklibname kgraphviewer 3
+
+%package -n %libkgraphviewer
+Group:		Graphics
+Summary:	Shared library for %name
+
+%description -n %libkgraphviewer
+This package contains shared library for %name.
+
+%files -n %libkgraphviewer
+%defattr(-,root,root)
+%{_kde_libdir}/libkgraphviewer.so.*
+
+#--------------------------------------------------------------------
+
+%package devel
+Group:		Graphics
+Summary:	Development files for %name
+Requires:	%libkgraphviewer = %version
+
+%description devel
+This package contains development files for %name.
+
+%files devel
+%defattr(-,root,root)
+%{_kde_libdir}/libkgraphviewer.so
+%{_kde_includedir}/%name
+
+#--------------------------------------------------------------------
+
 %prep
-%setup -q -n %name-%version-kde4.2.0
+%setup -q -n %name
 
 %build
 %cmake_kde4
@@ -52,7 +83,7 @@ desktop-file-install --vendor='' \
 	--dir %buildroot%_kde_datadir/applications/kde4/ \
 	--remove-key='Encoding' \
 	--remove-category='Application' \
-	--add-category='Qt;KDE;Graphics;2DGraphics;Viewer' \
+	--add-category='Science;Education' \
 	%buildroot%_kde_datadir/applications/kde4/kgraphviewer.desktop \
 	%buildroot%_kde_datadir/applications/kde4/kgrapheditor.desktop
 
