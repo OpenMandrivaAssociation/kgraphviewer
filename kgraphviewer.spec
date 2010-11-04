@@ -1,5 +1,5 @@
 Name:		kgraphviewer
-Version: 	2.0.90
+Version: 	2.1
 Release: 	%mkrel 1
 Summary:	A GraphViz dot graph viewer for KDE
 Source0: 	https://api.opensuse.org/public/source/home:milianw:kdeapps/kgraphviewer/%name-%version.tar.gz
