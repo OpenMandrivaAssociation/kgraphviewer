@@ -18,13 +18,14 @@ BuildRequires:	cmake(KF6KIO)
 BuildRequires:	cmake(KF6WidgetsAddons)
 BuildRequires:	cmake(KF6IconThemes)
 
-BuildRequires:	pkgconfig(Qt6Core)
-BuildRequires:	pkgconfig(Qt6DBus)
-BuildRequires:	pkgconfig(Qt6Gui)
-BuildRequires:	pkgconfig(Qt6Network)
-BuildRequires:	pkgconfig(Qt6PrintSupport)
-BuildRequires:	pkgconfig(Qt6Svg)
-BuildRequires:	pkgconfig(Qt6Widgets)
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6Core5Compat)
+BuildRequires:	cmake(Qt6DBus)
+BuildRequires:	cmake(Qt6Gui)
+BuildRequires:	cmake(Qt6Network)
+BuildRequires:	cmake(Qt6PrintSupport)
+BuildRequires:	cmake(Qt6Svg)
+BuildRequires:	cmake(Qt6Widgets)
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	boost-devel
