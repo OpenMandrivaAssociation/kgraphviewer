@@ -3,8 +3,8 @@
 %define devname	%mklibname %{name} -d
 
 Name:		kgraphviewer
-Version:	25.08.2
-Release:	2
+Version:	25.08.3
+Release:	1
 Summary:	A GraphViz dot graph viewer for Plasma
 License:	GPLv2+
 Group:		Graphical desktop/KDE
