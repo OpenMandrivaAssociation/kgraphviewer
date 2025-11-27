@@ -4,7 +4,7 @@
 
 Name:		kgraphviewer
 Version:	25.08.3
-Release:	1
+Release:	2
 Summary:	A GraphViz dot graph viewer for Plasma
 License:	GPLv2+
 Group:		Graphical desktop/KDE
